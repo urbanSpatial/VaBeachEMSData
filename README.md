@@ -1,12 +1,4 @@
----
-title: "README.rmd"
-author: "Ken Steif"
-date: "11/11/2020"
-output: 
-  html_document:
-    keep_md: true
-    preserve_yaml: false
----
+
     
 # VaBeachEMSData
 This repo houses a now deprecated version of the Virginia Beach EMS calls data with xy coordinates.
