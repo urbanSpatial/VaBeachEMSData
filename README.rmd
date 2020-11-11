@@ -5,6 +5,7 @@ date: "11/11/2020"
 output: 
   html_document:
     keep_md: true
+    preserve_yaml: false
 ---
     
 # VaBeachEMSData
