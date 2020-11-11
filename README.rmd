@@ -10,22 +10,22 @@ output:
 # VaBeachEMSData
 This repo houses a now deprecated version of the Virginia Beach EMS calls data with xy coordinates.
 
+```{r 1_setup, echo = FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,results=TRUE, echo=TRUE, message = FALSE, warning=FALSE, 
+                      fig.align="center", cache=TRUE)
+```
 
-
-
-```r
+```{r}
 library(sf)
 library(tidyverse)
 library(lubridate)
 ```
 
-
-```r
+```{r, cache=TRUE}
 dat <- read.csv("https://raw.githubusercontent.com/urbanSpatial/VaBeachEMSData/main/VaBeach_EMS_with_coords_17_18.csv")
 ```
 
-
-```r
+```{r}
 dat <- 
   dat %>% 
     filter(!is.na(X) & !is.na(Y)) %>% 
@@ -34,10 +34,7 @@ dat <-
            dotw = wday(callDate, label=T))
 ```
 
-
-```r
+```{r}
 group_by(dat, dotw) %>% summarize(Count = n()) %>%
 ggplot(aes(dotw, Count)) + geom_bar(stat="identity") + ggtitle("Count by dotw")
 ```
-
-<img src="README_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
