@@ -1,12 +1,4 @@
----
-title: "README.rmd"
-author: "Ken Steif"
-date: "11/11/2020"
-output: 
-  html_document:
-    keep_md: true
-    preserve_yaml: false
----
+
     
 # Virginia Beach, Virginia EMS calls w/ geographic coordinates
 
