@@ -8,37 +8,21 @@ output:
     preserve_yaml: false
 ---
     
-# VaBeachEMSData
-This repo houses a now deprecated version of the Virginia Beach EMS calls data with xy coordinates.
+# Virginia Beach, Virginia EMS calls w/ geographic coordinates
+
+This repo houses a now deprecated version of the [Virginia Beach EMS calls data](https://data.vbgov.com/dataset/ems-calls-for-service/resource/3e03dc00-a196-48ec-af62-0eaf028f5c27?inner_span=True) with XY coordinates. 
+
+Data from January, 2017 through February, 2018 are included. This dataset is used for a final project option in my course. 
 
 
 
 
-```r
-library(sf)
-library(tidyverse)
-library(lubridate)
-```
 
 
-```r
-dat <- read.csv("https://raw.githubusercontent.com/urbanSpatial/VaBeachEMSData/main/VaBeach_EMS_with_coords_17_18.csv")
-```
 
 
-```r
-dat <- 
-  dat %>% 
-    filter(!is.na(X) & !is.na(Y)) %>% 
-    st_as_sf(coords = c("X", "Y"), crs = 4326, agr = "constant") %>%
-    mutate(callDate = mdy_hm(CallDateandTime),
-           dotw = wday(callDate, label=T))
-```
 
 
-```r
-group_by(dat, dotw) %>% summarize(Count = n()) %>%
-ggplot(aes(dotw, Count)) + geom_bar(stat="identity") + ggtitle("Count by dotw")
-```
-
-<img src="README_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+<br>
+<img src="README_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+    
